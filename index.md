@@ -8,7 +8,7 @@ _**Team members:**_
 - İpek Korkmaz
 
 
-#### _**Table of Contents:**_
+### **Table of Contents:**
 [Project Description](#project-description)  
 [Sea Turtles](#sea-turtles)   
 [Data Set Description](#data-set-description)    
@@ -20,13 +20,13 @@ _**Team members:**_
 
 <br>
 
-#### **Project Description**
+### **Project Description**
 
 A social problem is any condition or behavior that has negative consequences for large numbers of people and that is generally recognized as a condition or behavior that needs to be addressed. These problems such as environmental pollution, forest fires, endangered animals, murders, … etc. have become increasingly common in the world especially in recent years. While social awareness should increase over the years, unfortunately, the importance and value that given to nature, animals and people decreases inversely. To draw attention to this issue, we have chosen one of these problems and worked on it to raise awareness.
 
 <br>
 
-#### **Sea Turtles**
+### **Sea Turtles**
 
 Sea turtles are large, air breathing, ectothermic reptiles that have adapted for life in the sea. They have paddle-shaped flippers instead of feet, streamlined bodies, salt glands, and cannot retract into their shell like a land turtle can.  Sea turtles have ancestors pre-dating the dinosaurs 245 million years ago. Seven species of sea turtles have managed to survive to modern times. All are considered threatened or endangered. Three of these species; the Loggerhead (Caretta caretta), Green (Chelonia mydas), and Leatherback (Dermochelys coriacea) sea turtles nest on Broward County’s beaches, and two of these species; the Hawksbill (Eretmochelys imbricate) and kemp’s Ridley (Lepidochlys kempi) are seen offshore.
 
@@ -54,7 +54,7 @@ As we mentioned before, our goal in this project is to show the decreasement in 
 
 <br>
 
-#### **Data Set Description**
+### **Data Set Description**
 
 For our project, we have worked with the data sets that we found from [https://seamap.env.duke.edu/swot](https://seamap.env.duke.edu/swot). (The sea turtle data contributions to SWOT are archived within a specialized SWOT mapping application within the OBIS-SEAMAP system (for the website click [here](http://seamap.env.duke.edu)). It is from Ocean Biodiversity Information System (OBIS) which is a Project under IOS-UNESCO's International Oceanographic Data and Information Exchange (IODE). This dataset contains information about where sea turtles nest in which years.
 To access the data, we have to state who we are and why we need it.  Unfortunately, we can not access to nesting count data set due to needing to require permission from each data provider.
@@ -348,19 +348,19 @@ data_sf %>%
             title = 'Species')
   
 ```
-![](https://github.com/ipekkorkmz/Sea_Turtles/blob/main/images/leaflet.PNG)
+![](https://raw.githubusercontent.com/ipekkorkmz/Sea_Turtles/main/images/leaflet.PNG)
 
 We can see from map that some species' ranges are very limited. For example, Natator depressus is found around Australia and Papua New Guinea in the Pacific. Lepidochelys kempii are mostly limited to the Gulf of Mexico and the east coast of the United States. The others do not have a certain range. Also, with this map, we have shown that these locations are similiar with the ones that we mentioned before.
 
 <br>
 
-#### **Results**
+### **Results**
 
 In our project, we have used several types of graphs to finalize the results. Firstly, we plotted bar graph to see the total numbers of observation over the years clearly. In bar graphs, every single species are stacked one after the other. In this way, the total numbers of observation in each year can be seen. Secondly, we plotted line graph. We chose this graph because it is the ideal one to see every increment and decreasement of observation’s numbers for each species within the years. Thirdly, we plotted pie chart. We used this chart to compare the species’ percentage over the years. Then, we created a map by using leaflet function. In this map, we marked species’ locations. Thus, this map includes distributions of every species’ locations. We can see in which year and where a species is seen and not seen anymore. Also, with these graphs, we can choose to observe the datas of every species’ on their own and not all species in total. Finally, we have created an application which is called Shiny. With our Shiny application, we can choose sea turtle species and year range for better observing. Moreover, in this way, we can compare sea turtles with each other easily. We can see the decreasement in numbers of obseravation of sea turtles.
 
 <br>
 
-#### **Discuss**
+### **Discuss**
 
 At the beginning of our project, we have planned to discuss the reasons behind the decreasement of observation numbers. We will share our opinions and the information that we have found about extinction of sea turtles. Before this part, we must say that this discussion part is mostly based on our opinions from our research. 
 
@@ -370,13 +370,13 @@ There might be few ideas to improve our project. For instance, by using the data
 
 <br>
 
-#### **Conclusion**
+### **Conclusion**
 
 In conclusion, this Project aims to point extinction of sea turtles. To do that first, we have found a data set which contains numbers of observation between 1930 and 2018. After that we have made visualizations so that this data can be understood more clearly by everyone. In this visualizations we plotted bar, line, and pie charts. Also, we created an interactive map to show their nesting locations. We have searched possible reasons for this extinction. Unfortunately, we have seen many factors that are effective in decreasement in numbers. There is some work being done to save them. In the Atlantic, the loggerhead sea turtle and green sea turtle are listed as threatened. The Leatherback, Hawksbill, and Kemp’s Ridley sea turtle species are listed as endangered everywhere. Since 1973, all species of sea turtles are threatened or endangered and protected through Florida Statues, Chapter 370, and by the United States Endangered Species Act of 1973.  Moreover, Indicit conducted studies on sea turtles and marine waste between 2017-2019. In Turkey, WWF carries on a work about endangered species. However it is not enough. If we want to save these endangered animals, we have to do more about them. Everyone should create awareness and do their responsibilities. If we want to save our planet, this is the only choice.
 
 <br>
 
-#### **Refereces**
+### **Refereces**
 
 
 - [hcas.nova.edu](https://hcas.nova.edu/seaturtles/endangered.html)
