@@ -38,20 +38,6 @@ These seven species are:
 **Kemp’s Ridley Sea Turtle (Lepidochelys kempii)**, prefers shallow areas with sandy and muddy bottoms. Kemp’s ridleys nest more often than other species, every 1 to 3 years on average. The Kemp’s ridleys’ nesting is also arribadas. Adults are mostly limited to the Gulf of Mexico. Juveniles range between tropical and temperate coastal areas of the northwest Atlantic Ocean and can be found up and down the east coast of the United States.
 
 
-```{r, message=FALSE, echo=FALSE, warning=FALSE}
-library(readr)
-library(dplyr)
-library(tidyverse)
-library(forcats)
-library(ggplot2)
-library(viridis)
-library(hrbrthemes)
-library(patchwork)
-library(sf)
-library(leaflet)
-library(plotly)
-```
-
 
 As we mentioned before, our goal in this project is to show the decreasement in number of observation of sea turtles nesting and this way to raise awareness about this issue. Also, to discuss the possible reasons of this decreasement in the given years.
 
@@ -64,7 +50,7 @@ To access the data, we have to state who we are and why we need it.  Unfortunate
 
 The data set we have used contains 5693 rows and 18 columns. Variables and their meanings are:
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r}
 site_location <- read_csv("data/obis_seamap_swot_site_locations.csv")
 colnames(site_location)
 ```
@@ -94,7 +80,7 @@ head(site_location, 5)
 
 After importing the data set, we change the "Unknown"s with NA and remove contact columns.
 
-```{r, message=FALSE, warning=FALSE}
+```{r}
 data <- read_csv("data/obis_seamap_swot_site_locations.csv") %>%
         select(code:mds) %>%
         na_if("Unknown")
@@ -298,7 +284,7 @@ Now, with the help of our graphs, we will analyze ever species’ numerical resu
 
 We make only Caretta_caretta chart code visible because the rest of the charts' codes are similar. Except, Chelonia_mydas and Lepidochelys_olivacea charts. In addition to these, we write a code that separates the years in order which increases by 10. 
 
-```{r out.width="70%"}
+```{r}
 Caretta_caretta <- yearly_data %>%
   filter(species == "Caretta caretta") %>%
   ggplot(aes(x=years_monitored, y=n)) +
@@ -313,7 +299,7 @@ ggplotly(Caretta_caretta)
 
 Caretta Carettas were seen for the first time in 1979 and never seen in 1980, between 1982-1990 and 1990-1992 at all. Before 1983, they were seen rarely. They started to appear regularly after 1990. Small decreasements and increments can be seen in this time period. The number of observations peaked at 220 in 2006. Also, there exists a huge increment after 2004 and decreasement after 2006. They were observed last in 2018.
 
-```{r out.width="70%", echo=FALSE}
+```{r}
 Chelonia_mydas <- yearly_data %>%
   filter(species == "Chelonia mydas") %>%
   ggplot(aes(x=years_monitored, y=n)) +
@@ -328,7 +314,7 @@ ggplotly(Chelonia_mydas)
 
 Chelonia Mydases were seen for the first time in 1930 and seen again just one more time in 1938 until 1970. After 1970, we can see the observation more regular in the following years. A great increment can be seen after 2005 and great decreasement after 2007. Also, in 2006, the number of observation peaked with 308. They were observed last in 2017.
 
-```{r out.width="70%", echo=FALSE}
+```{r}
 Dermochelys_coriacea <- yearly_data %>%
   filter(species == "Dermochelys coriacea") %>%
   ggplot(aes(x=years_monitored, y=n)) +
@@ -343,7 +329,7 @@ ggplotly(Dermochelys_coriacea)
 
 Dermochelys coriaceas were seen for the first time in 1979. In the 1980s, they were seen in some years. From 1990, they started to appear regularly. A huge increment can be seen after 1999. Also, there exists a huge decreasement after 2000. The number of observations peaked at 146 in 2006. They were observed last in 2016.
 
-```{r out.width="70%", echo=FALSE}
+```{r}
 Lepidochelys_olivacea <- yearly_data %>%
   filter(species == "Lepidochelys olivacea") %>%
   ggplot(aes(x=years_monitored, y=n)) +
@@ -358,7 +344,7 @@ ggplotly(Lepidochelys_olivacea)
 
 Lepidochelys olivaceas were seen for the first time in 1969. They were observed in some years until 1992. The process between 1969 and 1992 is not regular. The number of observations peaked at 120 in 2009. There exists a great increment after 2008 and decreasement after 2009. They were observed last in 2016.
 
-```{r out.width="70%", echo=FALSE}
+```{r}
 Eretmochelys_imbricata <- yearly_data %>%
   filter(species == "Eretmochelys imbricata") %>%
   ggplot(aes(x=years_monitored, y=n)) +
@@ -373,7 +359,7 @@ ggplotly(Eretmochelys_imbricata)
 
 Eretmochelyses imbricata were seen for the first time in 1979. Between 1979 and 1986, they were only observed in 1985. From 1986, they started to appear regularly. A huge increment can be seen after 2005 and there exists a huge decreasement after 2006. The number of observations peaked at 487 in 2006. They were observed last in 2016.
 
-```{r out.width="70%", echo=FALSE}
+```{r}
 Natator_depressus <- yearly_data %>%
   filter(species == "Natator depressus") %>%
   ggplot(aes(x=years_monitored, y=n)) +
@@ -388,7 +374,7 @@ ggplotly(Natator_depressus)
 
 Natator depressuses were seen for the first time in 1986 and for the last time in 2008. In this time line they were only observed in 1987, 1992, 1997, 1999, 2004, 2005, and 2006. There exists a great increment after 2007 and decreasement after 2004. The number of observations peaked at 110 in 2008.
 
-```{r out.width="70%", echo=FALSE}
+```{r}
 Lepidochelys_kempii <- yearly_data %>%
   filter(species == "Lepidochelys kempii") %>%
   ggplot(aes(x=years_monitored, y=n)) +
