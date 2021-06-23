@@ -7,6 +7,17 @@ _**Team members:**_
 - Selen Kartal
 - İpek Korkmaz
 
+
+#### _**Table of Contents:**_
+[Project Description](https://ipekkorkmz.github.io/Sea_Turtles/#Project-Description)  
+[Sea Turtles](https://ipekkorkmz.github.io/Sea_Turtles/#Sea-Turtles)   
+[Data Set Description](https://ipekkorkmz.github.io/Sea_Turtles/#Data-Set-Description)    
+[Actions In Project Process](https://ipekkorkmz.github.io/Sea_Turtles/#Actions-In-Project-Process)    
+[Results](https://ipekkorkmz.github.io/Sea_Turtles/#Results)   
+[Discuss](https://ipekkorkmz.github.io/Sea_Turtles/#Discuss)   
+[Conclusion](https://ipekkorkmz.github.io/Sea_Turtles/#Conclusion)   
+[Refereces](https://ipekkorkmz.github.io/Sea_Turtles/#Refereces)
+
 <br>
 
 #### **Project Description**
@@ -71,8 +82,6 @@ colnames(site_location)
 - **contact1-5:** Contact to community or people who collected the data.
 
 The first 5 rows:
-```{r, echo=FALSE, message = FALSE, warning = FALSE}
-head(site_location, 5)
 ```
 <br>
 
