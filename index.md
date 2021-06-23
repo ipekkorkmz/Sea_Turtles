@@ -76,8 +76,6 @@ The data set we have used contains 5693 rows and 18 columns. Variables and their
 - **mds:** Minimum Data Standards. Level 1 is the highest quality standards and level 2 is minimum quality standards in the SWOT database.
 - **contact1-5:** Contact to community or people who collected the data.
 
-The first 5 rows:
-
 <br>
 
 #### **Actions In Project Process**
@@ -221,13 +219,7 @@ barchar <- yearly_data %>%
                     panel.background = element_rect("#Fcfeff")) +
                 scale_fill_manual(values = colors)
 ```
-
-
-To make the graph interactive, we use ggplotly() function.
-
-```{r}
-ggplotly(barchar, tooltip = c("x", "y"))
-```
+![](https://github.com/ipekkorkmz/Sea_Turtles/blob/main/images/over_all_bar_chart.png)
 
 When we look at the total bar graph, we can see that number of observation peaked at 1192 in 2006 with 7 species. During the 1930-2018 timeline, first apperance was in 1938 and until 1969 there does not exist any kind of species that observed. The observation continued regularly until 2018 except 1972, 1974, and 1975. In 1980, 1978, 1977, 1976, 1973, 1971, 1969, and 1938, only one species has been observed in each year. 
 
@@ -248,13 +240,7 @@ linechar <- yearly_data %>%
                   panel.background = element_rect("#Fcfeff")) +
             scale_colour_manual("Species", values = colors)
 ```
-
-
-To make the graph interactive, we use ggplotly() function.
-
-```{r}
-ggplotly(linechar, tooltip = c("x", "y"))
-```
+![](https://github.com/ipekkorkmz/Sea_Turtles/blob/main/images/over_all_line_chart.png)
 
 
 We create pie_data to plot pie chart.
@@ -280,6 +266,7 @@ pie_data %>%
          yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
          margin = list(t=50))
 ```
+![](https://github.com/ipekkorkmz/Sea_Turtles/blob/main/images/over_all_pie_chart.png)
 
 From the pie chart, it can be seen that the most observed species from 1930 to 2018 is Chelonia mydas with 27.7%. It is followed by Eretmochelys imbricata with a little difference. The least observed species is Natator depressus with 2.5%.
 
@@ -300,28 +287,31 @@ Caretta_caretta <- yearly_data %>%
 
 ggplotly(Caretta_caretta)
 ```
+![](https://github.com/ipekkorkmz/Sea_Turtles/blob/main/images/Caretta_caretta_bar_chart.png)
 
 Caretta Carettas were seen for the first time in 1979 and never seen in 1980, between 1982-1990 and 1990-1992 at all. Before 1983, they were seen rarely. They started to appear regularly after 1990. Small decreasements and increments can be seen in this time period. The number of observations peaked at 220 in 2006. Also, there exists a huge increment after 2004 and decreasement after 2006. They were observed last in 2018.
 
+![](https://github.com/ipekkorkmz/Sea_Turtles/blob/main/images/Chelonia_mydas_bar_chart.png)
 
 Chelonia Mydases were seen for the first time in 1930 and seen again just one more time in 1938 until 1970. After 1970, we can see the observation more regular in the following years. A great increment can be seen after 2005 and great decreasement after 2007. Also, in 2006, the number of observation peaked with 308. They were observed last in 2017.
 
+![](https://github.com/ipekkorkmz/Sea_Turtles/blob/main/images/Dermochelys_coriacea_bar_chart.png)
 
 Dermochelys coriaceas were seen for the first time in 1979. In the 1980s, they were seen in some years. From 1990, they started to appear regularly. A huge increment can be seen after 1999. Also, there exists a huge decreasement after 2000. The number of observations peaked at 146 in 2006. They were observed last in 2016.
 
-
+![](https://github.com/ipekkorkmz/Sea_Turtles/blob/main/images/Lepidochelys_olivacea_bar_chart.png)
 
 Lepidochelys olivaceas were seen for the first time in 1969. They were observed in some years until 1992. The process between 1969 and 1992 is not regular. The number of observations peaked at 120 in 2009. There exists a great increment after 2008 and decreasement after 2009. They were observed last in 2016.
 
-
+![](https://github.com/ipekkorkmz/Sea_Turtles/blob/main/images/Eretmochelyses_imbricata_bar_chart.png)
 
 Eretmochelyses imbricata were seen for the first time in 1979. Between 1979 and 1986, they were only observed in 1985. From 1986, they started to appear regularly. A huge increment can be seen after 2005 and there exists a huge decreasement after 2006. The number of observations peaked at 487 in 2006. They were observed last in 2016.
 
-
+![](https://github.com/ipekkorkmz/Sea_Turtles/blob/main/images/Natator_depressus_bar_chart.png)
 
 Natator depressuses were seen for the first time in 1986 and for the last time in 2008. In this time line they were only observed in 1987, 1992, 1997, 1999, 2004, 2005, and 2006. There exists a great increment after 2007 and decreasement after 2004. The number of observations peaked at 110 in 2008.
 
-
+![](https://github.com/ipekkorkmz/Sea_Turtles/blob/main/images/Lepidochelys_kempii_bar_chart.png)
 
 Lepidochelys kempiis were seen for the first time in 1978. They were observed last in 2014. There is not any year such that they were not observed. The observation numbers are pretty regular from 1978 to 2014. There exists a great increment after 2013 and decreasement after 2006. The number of observations peaked at 42 in 2013.
 
@@ -358,6 +348,7 @@ data_sf %>%
             title = 'Species')
   
 ```
+![](https://github.com/ipekkorkmz/Sea_Turtles/blob/main/images/leaflet.PNG)
 
 We can see from map that some species' ranges are very limited. For example, Natator depressus is found around Australia and Papua New Guinea in the Pacific. Lepidochelys kempii are mostly limited to the Gulf of Mexico and the east coast of the United States. The others do not have a certain range. Also, with this map, we have shown that these locations are similiar with the ones that we mentioned before.
 
