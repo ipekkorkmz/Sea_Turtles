@@ -9,14 +9,14 @@ _**Team members:**_
 
 
 #### _**Table of Contents:**_
-[Project Description](https://ipekkorkmz.github.io/Sea_Turtles/#Project-Description)  
-[Sea Turtles](https://ipekkorkmz.github.io/Sea_Turtles/#Sea-Turtles)   
-[Data Set Description](https://ipekkorkmz.github.io/Sea_Turtles/#Data-Set-Description)    
-[Actions In Project Process](https://ipekkorkmz.github.io/Sea_Turtles/#Actions-In-Project-Process)    
-[Results](https://ipekkorkmz.github.io/Sea_Turtles/#Results)   
-[Discuss](https://ipekkorkmz.github.io/Sea_Turtles/#Discuss)   
-[Conclusion](https://ipekkorkmz.github.io/Sea_Turtles/#Conclusion)   
-[Refereces](https://ipekkorkmz.github.io/Sea_Turtles/#Refereces)
+[Project Description](#project-description)  
+[Sea Turtles](#sea-turtles)   
+[Data Set Description](#data-set-description)    
+[Actions In Project Process](#actions-in-project-process)    
+[Results](#results)   
+[Discuss](#discuss)   
+[Conclusion](#conclusion)   
+[Refereces](#refereces)
 
 <br>
 
@@ -61,11 +61,6 @@ To access the data, we have to state who we are and why we need it.  Unfortunate
 
 The data set we have used contains 5693 rows and 18 columns. Variables and their meanings are:
 
-```{r}
-site_location <- read_csv("data/obis_seamap_swot_site_locations.csv")
-colnames(site_location)
-```
-
 - **code:** Country code, defined in ISO 3166-1 alpha-2.
 - **country:** Country where the sea turtles nested.
 - **siteid:** Code of the site.
@@ -82,7 +77,7 @@ colnames(site_location)
 - **contact1-5:** Contact to community or people who collected the data.
 
 The first 5 rows:
-```
+
 <br>
 
 #### **Actions In Project Process**
@@ -308,92 +303,25 @@ ggplotly(Caretta_caretta)
 
 Caretta Carettas were seen for the first time in 1979 and never seen in 1980, between 1982-1990 and 1990-1992 at all. Before 1983, they were seen rarely. They started to appear regularly after 1990. Small decreasements and increments can be seen in this time period. The number of observations peaked at 220 in 2006. Also, there exists a huge increment after 2004 and decreasement after 2006. They were observed last in 2018.
 
-```{r}
-Chelonia_mydas <- yearly_data %>%
-  filter(species == "Chelonia mydas") %>%
-  ggplot(aes(x=years_monitored, y=n)) +
-  geom_bar(stat = "identity", fill="#BEAED4") +
-  labs(y = "Number of Observations", x = "Observed Years",
-       title = "Observation of Chelonia mydas numbers over the years") +
-  scale_x_continuous(breaks=c(1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010, 2020)) +
-  theme(panel.background = element_rect("#Fcfeff"))
-
-ggplotly(Chelonia_mydas)
-```
 
 Chelonia Mydases were seen for the first time in 1930 and seen again just one more time in 1938 until 1970. After 1970, we can see the observation more regular in the following years. A great increment can be seen after 2005 and great decreasement after 2007. Also, in 2006, the number of observation peaked with 308. They were observed last in 2017.
 
-```{r}
-Dermochelys_coriacea <- yearly_data %>%
-  filter(species == "Dermochelys coriacea") %>%
-  ggplot(aes(x=years_monitored, y=n)) +
-  geom_bar(stat = "identity", fill="#FDC086") +
-  labs(y = "Number of Observations", x = "Observed Years",
-       title = "Observation of Dermochelys coriacea numbers over the years") +
-  scale_x_continuous(breaks=c(1980, 1990, 2000, 2010, 2020)) +
-  theme(panel.background = element_rect("#Fcfeff"))
-
-ggplotly(Dermochelys_coriacea)
-```
 
 Dermochelys coriaceas were seen for the first time in 1979. In the 1980s, they were seen in some years. From 1990, they started to appear regularly. A huge increment can be seen after 1999. Also, there exists a huge decreasement after 2000. The number of observations peaked at 146 in 2006. They were observed last in 2016.
 
-```{r}
-Lepidochelys_olivacea <- yearly_data %>%
-  filter(species == "Lepidochelys olivacea") %>%
-  ggplot(aes(x=years_monitored, y=n)) +
-  geom_bar(stat = "identity", fill="#E8E46E") +
-  labs(y = "Number of Observations", x = "Observed Years",
-       title = "Observation of Lepidochelys olivacea numbers over the years") +
-  scale_x_continuous(breaks=c(1970, 1980, 1990, 2000, 2010, 2020)) +
-  theme(panel.background = element_rect("#Fcfeff"))
 
-ggplotly(Lepidochelys_olivacea)
-```
 
 Lepidochelys olivaceas were seen for the first time in 1969. They were observed in some years until 1992. The process between 1969 and 1992 is not regular. The number of observations peaked at 120 in 2009. There exists a great increment after 2008 and decreasement after 2009. They were observed last in 2016.
 
-```{r}
-Eretmochelys_imbricata <- yearly_data %>%
-  filter(species == "Eretmochelys imbricata") %>%
-  ggplot(aes(x=years_monitored, y=n)) +
-  geom_bar(stat = "identity", fill="#386CB0") +
-  labs(y = "Number of Observations", x = "Observed Years",
-       title = "Observation of Eretmochelys imbricata numbers over the years") +
-  scale_x_continuous(breaks=c(1980, 1990, 2000, 2010, 2020)) +
-  theme(panel.background = element_rect("#Fcfeff"))
 
-ggplotly(Eretmochelys_imbricata)
-```
 
 Eretmochelyses imbricata were seen for the first time in 1979. Between 1979 and 1986, they were only observed in 1985. From 1986, they started to appear regularly. A huge increment can be seen after 2005 and there exists a huge decreasement after 2006. The number of observations peaked at 487 in 2006. They were observed last in 2016.
 
-```{r}
-Natator_depressus <- yearly_data %>%
-  filter(species == "Natator depressus") %>%
-  ggplot(aes(x=years_monitored, y=n)) +
-  geom_bar(stat = "identity", fill="#f29191") +
-  labs(y = "Number of Observations", x = "Observed Years",
-       title = "Observation of Natator depressus numbers over the years") +
-  scale_x_continuous(breaks=c(1980, 1990, 2000, 2010)) +
-  theme(panel.background = element_rect("#Fcfeff"))
 
-ggplotly(Natator_depressus)
-```
 
 Natator depressuses were seen for the first time in 1986 and for the last time in 2008. In this time line they were only observed in 1987, 1992, 1997, 1999, 2004, 2005, and 2006. There exists a great increment after 2007 and decreasement after 2004. The number of observations peaked at 110 in 2008.
 
-```{r}
-Lepidochelys_kempii <- yearly_data %>%
-  filter(species == "Lepidochelys kempii") %>%
-  ggplot(aes(x=years_monitored, y=n)) +
-  geom_bar(stat = "identity", fill="#999b84") +
-  labs(y = "Number of Observations", x = "Observed Years",
-       title = "Observation of Lepidochelys kempii numbers over the years") +
-  theme(panel.background = element_rect("#Fcfeff"))
 
-ggplotly(Lepidochelys_kempii)
-```
 
 Lepidochelys kempiis were seen for the first time in 1978. They were observed last in 2014. There is not any year such that they were not observed. The observation numbers are pretty regular from 1978 to 2014. There exists a great increment after 2013 and decreasement after 2006. The number of observations peaked at 42 in 2013.
 
