@@ -1,10 +1,10 @@
 ---
-title: "Endangered Species: Sea Turtles"
+title: 'Endangered Species: Sea Turtles'
 author: "Vinir"
 date: "21/06/2021"
 output:
-  html_document: default
-  pdf_document: default
+  html_document:
+    keep_md: true
 ---
 
 _**Team members:**_
@@ -67,6 +67,7 @@ library(patchwork)
 library(sf)
 library(leaflet)
 library(plotly)
+library(htmltools)
 ```
 
 
@@ -107,7 +108,7 @@ head(site_location, 5)
 ```
 <br>
 
-#### **Actions In Project Process**
+### **Actions In Project Process**
 
 After importing the data set, we change the "Unknown"s with NA and remove contact columns.
 
@@ -438,7 +439,7 @@ labels <-  sprintf("<strong>%s</strong><br/> Site Name: %s",
                    data_sf$species, data_sf$site_name) %>%
           lapply(htmltools::HTML)
 
-data_sf %>%
+map <- data_sf %>%
   leaflet() %>%
   addTiles() %>%
   addCircleMarkers(radius = 3,
@@ -450,7 +451,8 @@ data_sf %>%
             pal=pal,
             values=~species,
             title = 'Species')
-  
+
+htmlwidgets::saveWidget(map, "sea_turtles.html")
 ```
 
 We can see from map that some species' ranges are very limited. For example, Natator depressus is found around Australia and Papua New Guinea in the Pacific. Lepidochelys kempii are mostly limited to the Gulf of Mexico and the east coast of the United States. The others do not have a certain range. Also, with this map, we have shown that these locations are similiar with the ones that we mentioned before.
@@ -495,3 +497,4 @@ In conclusion, this Project aims to point extinction of sea turtles. To do that 
 - [amp.dw.com](https://amp.dw.com/tr/okyanuslar%C4%B1n-en-b%C3%BCy%C3%BCk-sorunu-plastik-kirlili%C4%9Fi/a-37610725)
 - [wwf.org.tr](https://www.wwf.org.tr/ne_yapiyoruz/doga_koruma/turler/deniz_kaplumbaas/)
 - [adfg.alaska.gov](https://www.adfg.alaska.gov/index.cfm?adfg=specialstatus.fedsummary&species=leatherbackseaturtle)
+
