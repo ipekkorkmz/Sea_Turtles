@@ -8,7 +8,7 @@ _**Team members:**_
 - İpek Korkmaz
 
 
-#### _**Table of Contents:**_
+### **Table of Contents:**
 [Project Description](#project-description)  
 [Sea Turtles](#sea-turtles)   
 [Data Set Description](#data-set-description)    
@@ -20,13 +20,13 @@ _**Team members:**_
 
 <br>
 
-#### **Project Description**
+### **Project Description**
 
 A social problem is any condition or behavior that has negative consequences for large numbers of people and that is generally recognized as a condition or behavior that needs to be addressed. These problems such as environmental pollution, forest fires, endangered animals, murders, … etc. have become increasingly common in the world especially in recent years. While social awareness should increase over the years, unfortunately, the importance and value that given to nature, animals and people decreases inversely. To draw attention to this issue, we have chosen one of these problems and worked on it to raise awareness.
 
 <br>
 
-#### **Sea Turtles**
+### **Sea Turtles**
 
 Sea turtles are large, air breathing, ectothermic reptiles that have adapted for life in the sea. They have paddle-shaped flippers instead of feet, streamlined bodies, salt glands, and cannot retract into their shell like a land turtle can.  Sea turtles have ancestors pre-dating the dinosaurs 245 million years ago. Seven species of sea turtles have managed to survive to modern times. All are considered threatened or endangered. Three of these species; the Loggerhead (Caretta caretta), Green (Chelonia mydas), and Leatherback (Dermochelys coriacea) sea turtles nest on Broward County’s beaches, and two of these species; the Hawksbill (Eretmochelys imbricate) and kemp’s Ridley (Lepidochlys kempi) are seen offshore.
 
@@ -54,7 +54,7 @@ As we mentioned before, our goal in this project is to show the decreasement in 
 
 <br>
 
-#### **Data Set Description**
+### **Data Set Description**
 
 For our project, we have worked with the data sets that we found from [https://seamap.env.duke.edu/swot](https://seamap.env.duke.edu/swot). (The sea turtle data contributions to SWOT are archived within a specialized SWOT mapping application within the OBIS-SEAMAP system (for the website click [here](http://seamap.env.duke.edu)). It is from Ocean Biodiversity Information System (OBIS) which is a Project under IOS-UNESCO's International Oceanographic Data and Information Exchange (IODE). This dataset contains information about where sea turtles nest in which years.
 To access the data, we have to state who we are and why we need it.  Unfortunately, we can not access to nesting count data set due to needing to require permission from each data provider.
@@ -75,8 +75,6 @@ The data set we have used contains 5693 rows and 18 columns. Variables and their
 - **nesting_status:** If their nesting number is counted, Its value is “QUANTIFIED”. If not, its value is “UNQUANTIFIED”.
 - **mds:** Minimum Data Standards. Level 1 is the highest quality standards and level 2 is minimum quality standards in the SWOT database.
 - **contact1-5:** Contact to community or people who collected the data.
-
-The first 5 rows:
 
 <br>
 
@@ -221,13 +219,7 @@ barchar <- yearly_data %>%
                     panel.background = element_rect("#Fcfeff")) +
                 scale_fill_manual(values = colors)
 ```
-
-
-To make the graph interactive, we use ggplotly() function.
-
-```{r}
-ggplotly(barchar, tooltip = c("x", "y"))
-```
+![](https://raw.githubusercontent.com/ipekkorkmz/Sea_Turtles/main/images/over_all_bar_chart.png)
 
 When we look at the total bar graph, we can see that number of observation peaked at 1192 in 2006 with 7 species. During the 1930-2018 timeline, first apperance was in 1938 and until 1969 there does not exist any kind of species that observed. The observation continued regularly until 2018 except 1972, 1974, and 1975. In 1980, 1978, 1977, 1976, 1973, 1971, 1969, and 1938, only one species has been observed in each year. 
 
@@ -248,13 +240,7 @@ linechar <- yearly_data %>%
                   panel.background = element_rect("#Fcfeff")) +
             scale_colour_manual("Species", values = colors)
 ```
-
-
-To make the graph interactive, we use ggplotly() function.
-
-```{r}
-ggplotly(linechar, tooltip = c("x", "y"))
-```
+![](https://raw.githubusercontent.com/ipekkorkmz/Sea_Turtles/main/images/over_all_line_chart.png)
 
 
 We create pie_data to plot pie chart.
@@ -280,6 +266,7 @@ pie_data %>%
          yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
          margin = list(t=50))
 ```
+![](https://raw.githubusercontent.com/ipekkorkmz/Sea_Turtles/main/images/over_all_pie_chart.png)
 
 From the pie chart, it can be seen that the most observed species from 1930 to 2018 is Chelonia mydas with 27.7%. It is followed by Eretmochelys imbricata with a little difference. The least observed species is Natator depressus with 2.5%.
 
@@ -300,28 +287,31 @@ Caretta_caretta <- yearly_data %>%
 
 ggplotly(Caretta_caretta)
 ```
+![](https://raw.githubusercontent.com/ipekkorkmz/Sea_Turtles/main/images/Caretta_caretta_bar_chart.png)
 
 Caretta Carettas were seen for the first time in 1979 and never seen in 1980, between 1982-1990 and 1990-1992 at all. Before 1983, they were seen rarely. They started to appear regularly after 1990. Small decreasements and increments can be seen in this time period. The number of observations peaked at 220 in 2006. Also, there exists a huge increment after 2004 and decreasement after 2006. They were observed last in 2018.
 
+![](https://raw.githubusercontent.com/ipekkorkmz/Sea_Turtles/main/images/Chelonia_mydas_bar_chart.png)
 
 Chelonia Mydases were seen for the first time in 1930 and seen again just one more time in 1938 until 1970. After 1970, we can see the observation more regular in the following years. A great increment can be seen after 2005 and great decreasement after 2007. Also, in 2006, the number of observation peaked with 308. They were observed last in 2017.
 
+![](https://raw.githubusercontent.com/ipekkorkmz/Sea_Turtles/main/images/Dermochelys_coriacea_bar_chart.png)
 
 Dermochelys coriaceas were seen for the first time in 1979. In the 1980s, they were seen in some years. From 1990, they started to appear regularly. A huge increment can be seen after 1999. Also, there exists a huge decreasement after 2000. The number of observations peaked at 146 in 2006. They were observed last in 2016.
 
-
+![](https://raw.githubusercontent.com/ipekkorkmz/Sea_Turtles/main/images/Lepidochelys_olivacea_bar_chart.png)
 
 Lepidochelys olivaceas were seen for the first time in 1969. They were observed in some years until 1992. The process between 1969 and 1992 is not regular. The number of observations peaked at 120 in 2009. There exists a great increment after 2008 and decreasement after 2009. They were observed last in 2016.
 
-
+![](https://raw.githubusercontent.com/ipekkorkmz/Sea_Turtles/main/images/Eretmochelyses_imbricata_bar_chart.png)
 
 Eretmochelyses imbricata were seen for the first time in 1979. Between 1979 and 1986, they were only observed in 1985. From 1986, they started to appear regularly. A huge increment can be seen after 2005 and there exists a huge decreasement after 2006. The number of observations peaked at 487 in 2006. They were observed last in 2016.
 
-
+![](https://raw.githubusercontent.com/ipekkorkmz/Sea_Turtles/main/images/Natator_depressus_bar_chart.png)
 
 Natator depressuses were seen for the first time in 1986 and for the last time in 2008. In this time line they were only observed in 1987, 1992, 1997, 1999, 2004, 2005, and 2006. There exists a great increment after 2007 and decreasement after 2004. The number of observations peaked at 110 in 2008.
 
-
+![](https://raw.githubusercontent.com/ipekkorkmz/Sea_Turtles/main/images/Lepidochelys_kempii_bar_chart.png)
 
 Lepidochelys kempiis were seen for the first time in 1978. They were observed last in 2014. There is not any year such that they were not observed. The observation numbers are pretty regular from 1978 to 2014. There exists a great increment after 2013 and decreasement after 2006. The number of observations peaked at 42 in 2013.
 
@@ -358,18 +348,19 @@ data_sf %>%
             title = 'Species')
   
 ```
+![](https://raw.githubusercontent.com/ipekkorkmz/Sea_Turtles/main/images/leaflet.PNG)
 
 We can see from map that some species' ranges are very limited. For example, Natator depressus is found around Australia and Papua New Guinea in the Pacific. Lepidochelys kempii are mostly limited to the Gulf of Mexico and the east coast of the United States. The others do not have a certain range. Also, with this map, we have shown that these locations are similiar with the ones that we mentioned before.
 
 <br>
 
-#### **Results**
+### **Results**
 
 In our project, we have used several types of graphs to finalize the results. Firstly, we plotted bar graph to see the total numbers of observation over the years clearly. In bar graphs, every single species are stacked one after the other. In this way, the total numbers of observation in each year can be seen. Secondly, we plotted line graph. We chose this graph because it is the ideal one to see every increment and decreasement of observation’s numbers for each species within the years. Thirdly, we plotted pie chart. We used this chart to compare the species’ percentage over the years. Then, we created a map by using leaflet function. In this map, we marked species’ locations. Thus, this map includes distributions of every species’ locations. We can see in which year and where a species is seen and not seen anymore. Also, with these graphs, we can choose to observe the datas of every species’ on their own and not all species in total. Finally, we have created an application which is called Shiny. With our Shiny application, we can choose sea turtle species and year range for better observing. Moreover, in this way, we can compare sea turtles with each other easily. We can see the decreasement in numbers of obseravation of sea turtles.
 
 <br>
 
-#### **Discuss**
+### **Discuss**
 
 At the beginning of our project, we have planned to discuss the reasons behind the decreasement of observation numbers. We will share our opinions and the information that we have found about extinction of sea turtles. Before this part, we must say that this discussion part is mostly based on our opinions from our research. 
 
@@ -379,13 +370,13 @@ There might be few ideas to improve our project. For instance, by using the data
 
 <br>
 
-#### **Conclusion**
+### **Conclusion**
 
 In conclusion, this Project aims to point extinction of sea turtles. To do that first, we have found a data set which contains numbers of observation between 1930 and 2018. After that we have made visualizations so that this data can be understood more clearly by everyone. In this visualizations we plotted bar, line, and pie charts. Also, we created an interactive map to show their nesting locations. We have searched possible reasons for this extinction. Unfortunately, we have seen many factors that are effective in decreasement in numbers. There is some work being done to save them. In the Atlantic, the loggerhead sea turtle and green sea turtle are listed as threatened. The Leatherback, Hawksbill, and Kemp’s Ridley sea turtle species are listed as endangered everywhere. Since 1973, all species of sea turtles are threatened or endangered and protected through Florida Statues, Chapter 370, and by the United States Endangered Species Act of 1973.  Moreover, Indicit conducted studies on sea turtles and marine waste between 2017-2019. In Turkey, WWF carries on a work about endangered species. However it is not enough. If we want to save these endangered animals, we have to do more about them. Everyone should create awareness and do their responsibilities. If we want to save our planet, this is the only choice.
 
 <br>
 
-#### **Refereces**
+### **Refereces**
 
 
 - [hcas.nova.edu](https://hcas.nova.edu/seaturtles/endangered.html)
