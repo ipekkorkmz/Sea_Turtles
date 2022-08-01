@@ -1,4 +1,6 @@
-You can launch the app with:
+You can launch the app directly [here](https://ipekkorkmz.shinyapps.io/seaturtles/).
+
+Or with:
 
 ```{r}
 library(shiny)
