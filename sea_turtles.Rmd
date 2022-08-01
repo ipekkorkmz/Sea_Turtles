@@ -113,7 +113,7 @@ head(site_location, 5)
 After importing the data set, we change the "Unknown"s with NA and remove contact columns.
 
 ```{r, message=FALSE, warning=FALSE}
-data <- read_csv("data/obis_seamap_swot_site_locations.csv") %>%
+data <- site_location %>%
         select(code:mds) %>%
         na_if("Unknown")
 ```
@@ -209,12 +209,22 @@ data <- data %>%
 ```
 
 
+```{r}
+#df <-subset(data, select = -c(monitoring_effort, mds))
+#write.csv(df,"data\\data.csv", row.names = FALSE)
+```
+
+
 We count the number of species over the years.
 
 ```{r}
 yearly_data <- data %>%
               group_by(years_monitored) %>%
               count(species)
+```
+
+```{r}
+#write.csv(yearly_data,"data\\yearly_data.csv", row.names = FALSE)
 ```
 
 
@@ -429,6 +439,11 @@ data_sf <- st_as_sf(data,
                  crs = 4326)
 ```
 
+```{r}
+#df_sf <- subset(data_sf, select = -c(monitoring_effort, mds))
+#st_write(df_sf,"data\\data_sf.shp, row.names = FALSE)
+```
+
 
 We plot map with using leaflet() function.
 
@@ -452,7 +467,8 @@ map <- data_sf %>%
             values=~species,
             title = 'Species')
 
-htmlwidgets::saveWidget(map, "sea_turtles.html")
+map
+# htmlwidgets::saveWidget(map, "sea_turtles.html")
 ```
 
 We can see from map that some species' ranges are very limited. For example, Natator depressus is found around Australia and Papua New Guinea in the Pacific. Lepidochelys kempii are mostly limited to the Gulf of Mexico and the east coast of the United States. The others do not have a certain range. Also, with this map, we have shown that these locations are similiar with the ones that we mentioned before.

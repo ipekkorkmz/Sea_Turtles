@@ -1,12 +1,25 @@
 
 #    http://shiny.rstudio.com/
 
-
+# Importing libraries
+library(readr)
+library(dplyr)
 library(shiny)
 library(DT)
 library(plotly)
+library(sf)
+library(leaflet)
+library(htmltools)
 
-# Creating colors vector to do not write over and over again
+# Importing datasets
+data <- read_csv("~/Sea_Turtles/data/data.csv")
+yearly_data <- read_csv("~/Sea_Turtles/data/yearly_data.csv")
+
+data_sf <- st_read("~/Sea_Turtles/data/data_sf.shp")
+colnames(data_sf) <- c("code", "country", "siteid", "site_name","compiler", "species",
+                    "common_name", "years_monitored", "nesting_status", "geometry")
+
+# Creating colors vector
 colors = c("Caretta caretta" = "#7FC97F",
            "Chelonia mydas" = "#BEAED4",
            "Dermochelys coriacea" = "#FDC086",
@@ -27,7 +40,7 @@ ui <- fluidPage(
         # Checkbox for each sea turtle species
         checkboxGroupInput(inputId = "selected_species",
                            label = h3("Species"), 
-                           choices = unique(data_sf$species),
+                           choices = unique(data$species),
                            selected = "Caretta caretta"),
         
         # Slider range to change range of observed years (x-axis)
@@ -74,6 +87,7 @@ ui <- fluidPage(
 
 
 server <- function(input, output) {
+    
     
     # Reactive data set which contains species selected by users
     seaturtle_subset <- reactive({
@@ -151,9 +165,10 @@ server <- function(input, output) {
         
     })
     
+    
     # Reactive data set for pie chart
     seaturtle_count <- reactive({
-        data %>%
+        data %>% 
             filter(species %in% input$selected_species &
                    years_monitored >= input$slider_range[1] &
                    years_monitored <= input$slider_range[2]) %>%
@@ -182,27 +197,28 @@ server <- function(input, output) {
                        margin = list(t=50))
     })
     
+
     # Reactive data set for marking map    
     seaturtlemap_subset <- reactive({
         data_sf %>% 
             filter(species %in% input$selected_species &
-                   years_monitored >= input$slider_range[1] &
-                   years_monitored <= input$slider_range[2])
+                       years_monitored >= input$slider_range[1] &
+                       years_monitored <= input$slider_range[2])
     })
     
     # Interactive map    
     output$seaturtlemap <- renderLeaflet({
-        pal <- colorFactor(colors, domain = data_sf$species)
+        pal <- colorFactor(colors, domain = data$species)
         labels <-   sprintf("<strong>%s</strong><br/>
                             Site Name: %s<br/>
                             Observed year: %s",
                             seaturtlemap_subset()$species,
                             seaturtlemap_subset()$site_name,
                             seaturtlemap_subset()$years_monitored) %>%
-                    lapply(htmltools::HTML)
+            lapply(htmltools::HTML)
         
         seaturtlemap_subset() %>%
-        leaflet() %>%
+            leaflet() %>%
             addTiles() %>%
             addCircleMarkers(radius = 5,
                              color = ~pal(species),
@@ -218,17 +234,17 @@ server <- function(input, output) {
     # Information for map
     output$group_summary <- renderDataTable({
         if(input$show_table){
-        seaturtlemap_subset() %>%
-            st_drop_geometry() %>%
-            group_by(species) %>%
-            summarize(Count = n())
+            seaturtlemap_subset() %>%
+                st_drop_geometry() %>%
+                group_by(species) %>%
+                summarize(Count = n())
         }
     })    
     
     # All data set
     output$seaturtle_table <- renderDataTable(
-        data_sf %>%
-            select(-compiler, -monitoring_effort, -nesting_status, -mds)
+        data %>%
+            select(-compiler, -nesting_status)
         )
 }
 
